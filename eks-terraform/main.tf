@@ -1,12 +1,12 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 # ----------------------------
 # IAM Role for EKS Cluster
 # ----------------------------
 resource "aws_iam_role" "master" {
-  name = "yaswanth-eks-master1"
+  name = "shashanka-eks-master1"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -39,7 +39,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
 # IAM Role for Worker Nodes
 # ----------------------------
 resource "aws_iam_role" "worker" {
-  name = "yaswanth-eks-worker1"
+  name = "shashanka-eks-worker1"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -54,7 +54,7 @@ resource "aws_iam_role" "worker" {
 }
 
 resource "aws_iam_policy" "autoscaler" {
-  name = "yaswanth-eks-autoscaler-policy1"
+  name = "shashanka-eks-autoscaler-policy1"
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
@@ -155,7 +155,7 @@ resource "aws_eks_cluster" "eks" {
   }
 
   tags = {
-    Name        = "yaswanth-eks-cluster"
+    Name        = "shashanka-eks-cluster"
     Environment = "dev"
     Terraform   = "true"
   }
