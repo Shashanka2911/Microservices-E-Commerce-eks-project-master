@@ -29,16 +29,17 @@ pipeline {
         }
 
         stage("Docker Image Build") {
-            steps {
-                script {
-                    dir('src/checkoutservice') {
-                        sh 'docker system prune -f'
-                        sh 'docker container prune -f'
-                        sh 'docker build -t $IMAGE_NAME .'
-                    }
+        steps {
+            script {
+                dir('src/checkoutservice') {
+                    sh 'docker system prune -f'
+                    sh 'docker container prune -f'
+                    sh 'docker builder prune -a -f' // <-- ADD THIS LINE
+                    sh 'docker build -t $IMAGE_NAME .'
                 }
             }
         }
+    }
 
         stage("ECR Image Pushing") {
             steps {
