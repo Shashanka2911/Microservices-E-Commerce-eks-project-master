@@ -29,7 +29,7 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         # Updated to your actual AWS Account ID and Mumbai Region
-        image: 090587344627.dkr.ecr.ap-south-1.amazonaws.com/adservice:latest
+        image: 090587344627.dkr.ecr.ap-south-1.amazonaws.com/adservice:3
         ports:
         - containerPort: 9555
         env:
