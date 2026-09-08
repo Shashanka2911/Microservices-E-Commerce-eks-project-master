@@ -130,7 +130,7 @@ data "aws_subnet" "subnet-2" {
   vpc_id = data.aws_vpc.main.id
   filter {
     name   = "tag:Name"
-    values = ["Public-subnet2"]
+    values = ["Public-Subnet-2"] # <-- FIXED CAPITALIZATION HERE
   }
 }
 
@@ -167,10 +167,6 @@ resource "aws_eks_cluster" "eks" {
   ]
 }
 
-
-# ----------------------------
-# EKS Node Group
-# ----------------------------
 # ----------------------------
 # EKS Node Group
 # ----------------------------
@@ -181,7 +177,7 @@ resource "aws_eks_node_group" "node-grp" {
   subnet_ids      = [data.aws_subnet.subnet-1.id, data.aws_subnet.subnet-2.id]
   capacity_type   = "ON_DEMAND"
   disk_size       = 20
-  instance_types  = ["t3.small"] # <-- CHANGED THIS LINE
+  instance_types  = ["t3.small"] 
 
   labels = {
     env = "dev"
@@ -209,6 +205,7 @@ resource "aws_eks_node_group" "node-grp" {
     aws_iam_role_policy_attachment.autoscaler,
   ]
 }
+
 # ----------------------------
 # OIDC Provider for ServiceAccount IAM Roles
 # ----------------------------
