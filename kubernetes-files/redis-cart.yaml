@@ -26,6 +26,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
+        # This uses the public Docker Hub image, no ECR URL needed!
         image: redis:alpine
         ports:
         - containerPort: 6379

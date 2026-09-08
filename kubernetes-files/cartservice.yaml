@@ -28,7 +28,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: 242201296943.dkr.ecr.us-east-1.amazonaws.com/cartservice:1
+        # Updated to your actual AWS Account ID and Mumbai Region
+        image: 090587344627.dkr.ecr.ap-south-1.amazonaws.com/cartservice:latest
         ports:
         - containerPort: 7070
         env:

@@ -42,7 +42,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: 242201296943.dkr.ecr.us-east-1.amazonaws.com/loadgenerator:1
+        # Updated to your actual AWS Account ID and Mumbai Region
+        image: 090587344627.dkr.ecr.ap-south-1.amazonaws.com/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -55,7 +56,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: 242201296943.dkr.ecr.us-east-1.amazonaws.com/loadgenerator:1
+        # Updated to your actual AWS Account ID and Mumbai Region
+        image: 090587344627.dkr.ecr.ap-south-1.amazonaws.com/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
