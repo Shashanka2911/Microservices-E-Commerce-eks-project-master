@@ -5,7 +5,7 @@ provider "aws" {
 # ----------------------------
 # IAM Role for EKS Cluster
 # ----------------------------
-resource "aws_iam_role" "master1" {
+resource "aws_iam_role" "master" {
   name = "shashanka-eks-master1"
 
   assume_role_policy = jsonencode({
@@ -105,7 +105,7 @@ resource "aws_iam_role_policy_attachment" "autoscaler" {
 
 resource "aws_iam_instance_profile" "worker" {
   depends_on = [aws_iam_role.worker]
-  name       = "yaswanth-eks-worker-profile1"
+  name       = "shashanka-eks-worker-profile1"
   role       = aws_iam_role.worker.name
 }
 
@@ -155,7 +155,7 @@ resource "aws_eks_cluster" "eks" {
   }
 
   tags = {
-    Name        = "yaswanth-eks-cluster"
+    Name        = "shashanka-eks-cluster"
     Environment = "dev"
     Terraform   = "true"
   }
