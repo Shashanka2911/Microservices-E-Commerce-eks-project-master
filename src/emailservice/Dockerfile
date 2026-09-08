@@ -16,7 +16,7 @@ FROM python:3.10.8-slim@sha256:abf96998af340975c26177b900c10cfb40716c985325303c0
 
 FROM base as builder
 
-RUN apt-get -qq update \
+RUN apt-get -o Acquire::Check-Valid-Until=false -qq update \
     && apt-get install -y --no-install-recommends \
         wget g++ \
     && rm -rf /var/lib/apt/lists/*
