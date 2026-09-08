@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "microservice-Project1"
+    bucket = "microservice-project1" # Changed to all lowercase
     key    = "k8/terraform.tfstate"
     region = "ap-south-1"
   }
