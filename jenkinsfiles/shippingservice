@@ -10,9 +10,11 @@ pipeline {
         // AWS and ECR Variables
         AWS_REGION = "ap-south-1"
         AWS_ACCOUNT_ID = "090587344627" 
-        IMAGE_NAME = "recommendationservice"
+        
+        // UPDATED FOR SHIPPING SERVICE
+        IMAGE_NAME = "shippingservice"
         REPO_URL = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_NAME}"
-        YAML_FILE = "recommendationservice.yaml"
+        YAML_FILE = "shippingservice.yaml"
     }
 
     stages {
@@ -31,7 +33,7 @@ pipeline {
         stage("Docker Image Build") {
             steps {
                 script {
-                    dir('src/recommendationservice') {
+                    dir("src/${IMAGE_NAME}") {
                         sh 'docker system prune -f'
                         sh 'docker container prune -f'
                         sh 'docker build -t $IMAGE_NAME .'
